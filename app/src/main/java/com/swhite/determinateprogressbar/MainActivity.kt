@@ -24,8 +24,10 @@ class MainActivity : AppCompatActivity() {
         progressTextView = findViewById(R.id.text_view_progress)
         progressBar = findViewById(R.id.progress_bar)
 
+        //Initially set the progress bar to zero.
         updateProgressBar()
 
+        //Increase progress by 10% on button click, if less than 100%.
         increaseButton!!.setOnClickListener {
             if (prog <= 90) {
                 prog += 10
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //Decrease progress by 10% on button click, if more than 0%.
         decreaseButton!!.setOnClickListener {
             if (prog >= 10) {
                 prog -= 10
@@ -41,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //Update the progress value and the text accordingly.
     private fun updateProgressBar() {
         progressBar!!.progress = prog
         progressTextView!!.text = "$prog%"
